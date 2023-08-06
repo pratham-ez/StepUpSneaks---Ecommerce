@@ -71,35 +71,6 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
         product
     })
 })
-// exports.updateProduct = async (req, res, next) => {
-//     try {
-//         let product = await Product.findById(req.params.id);
-
-//         if (!product) {
-//             return next(new ErrorHander("Product not found", 404));
-//         }
-
-//         product = await Product.findByIdAndUpdate(req.params.id, req.body, {
-//             new: true,
-//             runValidators: true,
-//             useFindAndModify: false
-//         });
-
-//         res.status(200).json({
-//             success: true,
-//             product
-//         });
-//     } catch (err) {
-//         // Handle any errors that occurred during the process
-//         console.error(err);
-//         res.status(500).json({
-//             success: false,
-//             message: "An error occurred while updating the product"
-//         });
-//     }
-// };
-
-// delete product 
 
 exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
     const product = await Product.findById(req.params.id);
@@ -117,3 +88,4 @@ exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
 
 
 })
+
